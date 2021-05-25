@@ -1,7 +1,16 @@
 package com.company;
 
-import java.util.List;
+public abstract class Node<I> {
 
-public interface Node {
-    List<SimpleNode> getKeys();
+    private final I dado;
+
+    public Node (I dado) {
+        this.dado = dado;
+    }
+
+    public final I getDado() {
+        return this.dado;
+    }
+
+    public abstract void accept (Visitor visitor);
 }
