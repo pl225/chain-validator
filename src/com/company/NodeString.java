@@ -1,14 +1,26 @@
 package com.company;
 
-public class NodeString extends Node<String> {
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+public class NodeString extends Node {
+
+    private final String word;
 
     public NodeString(String word) {
-        super(word);
+        this.word = word;
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public List<Integer> getKeys() {
+        if (this.word.length() == 1) {
+            return Collections.singletonList(
+                    Objects.hashCode(this.word.charAt(0))
+            );
+        } else {
+            return this.word.chars().mapToObj(Objects::hashCode).collect(Collectors.toList());
+        }
     }
-
 }

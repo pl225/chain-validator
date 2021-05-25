@@ -1,16 +1,15 @@
 package com.company;
 
-public abstract class Node<I> {
+import java.util.List;
 
-    private final I dado;
+public abstract class Node {
+    public abstract List<Integer> getKeys ();
 
-    public Node (I dado) {
-        this.dado = dado;
+    public static Node createNode(int number) {
+        return new NodeInt(number);
     }
 
-    public final I getDado() {
-        return this.dado;
+    public static Node createNode(String string) {
+        return new NodeString(string);
     }
-
-    public abstract void accept (Visitor visitor);
 }
