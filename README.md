@@ -1,2 +1,2 @@
-# chain-validator
-Validador de cadeias de tipo genérico
+# Chain-Validator
+Validador de cadeias de tipo genérico.
